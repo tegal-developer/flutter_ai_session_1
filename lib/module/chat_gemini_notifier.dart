@@ -19,7 +19,7 @@ class ChatGeminiNotifier extends ChangeNotifier {
 
   sendMessage(ChatMessage value) {
     listMessage = [value, ...listMessage];
-    // listMessage.add(value);
+    // listMessage.add.;
     try {
       String values = value.text;
       gemini.streamGenerateContent(values).listen((event) {
@@ -31,6 +31,7 @@ class ChatGeminiNotifier extends ChangeNotifier {
           createdAt: DateTime.now(),
           text: response,
         );
+        // listMessage.add(resultMessage);
         listMessage = [resultMessage, ...listMessage];
         notifyListeners();
       });

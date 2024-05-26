@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ai/const.dart';
 import 'package:flutter_ai/module/chat_gemini_page.dart';
-import 'package:flutter_ai/module/home_page.dart';
+// import 'package:flutter_ai/module/home_page.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 
 void main() {
