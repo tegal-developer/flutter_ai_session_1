@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ai/const.dart';
 import 'package:flutter_ai/module/chat_gemini_page.dart';
+import 'package:flutter_ai/module/home_page.dart';
 // import 'package:flutter_ai/module/home_page.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ChatGeminiPage(),
+      home: HomePage(),
       debugShowCheckedModeBanner: false,
     );
   }

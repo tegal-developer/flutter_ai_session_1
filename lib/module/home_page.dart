@@ -32,6 +32,54 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     Positioned(
+                      bottom: 60,
+                      left: 0,
+                      right: 0,
+                      top: 50,
+                      child: ListView.builder(
+                        itemCount: value.listChat.length,
+                        reverse: true,
+                        physics: ClampingScrollPhysics(),
+                        itemBuilder: (context, i) {
+                          final a = value.listChat[i];
+                          return Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(16),
+                                color: a.posisi == "kanan"
+                                    ? Colors.green[200]
+                                    : Colors.white),
+                            margin: EdgeInsets.only(
+                              bottom: 8,
+                              left: a.posisi == 'kanan' ? 80 : 16,
+                              right: a.posisi == 'kiri' ? 80 : 16,
+                            ),
+                            padding: EdgeInsets.all(8),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                Text(
+                                  "${a.chat}",
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 4,
+                                ),
+                                Text(
+                                  "${a.createdDate}",
+                                  textAlign: TextAlign.end,
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    Positioned(
                       top: 0,
                       left: 0,
                       right: 0,
@@ -79,53 +127,7 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Positioned(
-                      bottom: 60,
-                      left: 0,
-                      right: 0,
-                      child: ListView.builder(
-                        itemCount: value.listChat.length,
-                        shrinkWrap: true,
-                        physics: ClampingScrollPhysics(),
-                        itemBuilder: (context, i) {
-                          final a = value.listChat[i];
-                          return Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(16),
-                                color: a.posisi == "kanan"
-                                    ? Colors.green[200]
-                                    : Colors.white),
-                            margin: EdgeInsets.only(
-                              bottom: 8,
-                              left: a.posisi == 'kanan' ? 80 : 16,
-                              right: a.posisi == 'kiri' ? 80 : 16,
-                            ),
-                            padding: EdgeInsets.all(8),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                Text(
-                                  "${a.chat}",
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 4,
-                                ),
-                                Text(
-                                  "${a.createdDate}",
-                                  textAlign: TextAlign.end,
-                                  style: TextStyle(
-                                    fontSize: 10,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                      ),
-                    ),
+
                     // Positioned(
                     //     top: 50,
                     //     left: 0,
@@ -179,7 +181,7 @@ class HomePage extends StatelessWidget {
                                 keyboardType: TextInputType.multiline,
                                 decoration: InputDecoration(
                                     suffixIcon: IconButton(
-                                      onPressed: value.sendMessage,
+                                      onPressed: () => value.sendMessage(),
                                       icon: Icon(Icons.send),
                                     ),
                                     fillColor: Colors.grey[300],
